@@ -1,0 +1,78 @@
+body {
+    background-image: url('../assets/cadastro2.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: rgb(63, 62, 62);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+.box {
+    position: absolute;
+    top: 55.7%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px;
+    border-radius: 15px;
+    width: -70%;
+}
+.inputBox{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    position: relative;
+    border-style: none;
+}
+.inputUser{
+    border:none;
+    border-radius: 10px;
+    width: 600px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline-color: #6840b1;
+    font-size: 15px;
+}
+.labelInput{
+    position: absolute;
+    top: 11px;
+    left: 10px;
+    pointer-events: none;
+    transition: .5s;
+    margin-bottom: 5px;
+}
+.inputUser:focus ~ .labelInput ,
+.inputUser:valid ~ .labelInput {
+    top: -20px;
+    font-size: 12px;
+    color: rgb(252, 252, 252);
+    font-weight: bold;
+}
+#data_nascimento {
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
+    outline-color: #6840b1;
+}
+#submit{
+    background-color: #4f78bc;
+    width: 100%;
+    padding: 10px;
+    margin: 20px auto;
+    color: rgb(207, 207, 207);
+    font-weight: bold;
+    font-size: 19px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    border-radius: 10px;
+    border-style: none;
+}
+#submit:hover {
+    background-color: #966fdf;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
