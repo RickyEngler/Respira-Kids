@@ -9,35 +9,26 @@
 
 <body>
     <div class="box">
+        <div class="popup-content">
         <form action="/cadastro" method="POST" id="cadastroForm">
-                <div class="inputBox">
-                    <input type="text" name="nome_completo" id="nome" class="inputUser" required>
-                    <label for="nome" class="labelInput">Nome Completo</label>
-                </div>
-                
-                <div class="inputBox">
-                    <input type="email" name="email" id="email" class="inputUser" required>
-                    <label for="email" class="labelInput">E-mail</label>
-                </div>
-             
-                <div class="inputBox">
-                    <input type="tel" name="telefone" id="telefone" class="inputUser" required>
-                    <label for="telefone" class="labelInput">Telefone</label>
-                </div>
-             
-                <div class="inputBox">
-                    <label for="data_nascimento"></label>
-                    <input type="date" placeholder="data_nascimento" id="data_nascimento" required>
-                    
-                </div>
-                
-                <div class="inputBox">
-                    <input type="password" name="senha" id="senha" class="inputUser" required>
-                    <label for="senha" class="labelInput">Senha</label>
-                </div>
-             
-                <button type="submit" id="submit"> CADASTRAR </button>
+            <label for="nome_completo">Nome Completo:</label>
+            <input type="text" id="nome_completo" name="nome_completo" placeholder="Insira seu nome completo..." required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Insira seu email..." required>
+            
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="Insira seu telefone..." required>
+            
+            <label for="data_nascimento">Data de Nascimento:</label>
+            <input type="date" id="data_nascimento" name="data_nascimento" placeholder="Insira sua data de nascimento..." required>
+            
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" placeholder="Escolha sua senha..." required>
+            
+            <button type="submit" id="submit">Cadastrar</button>
         </form>
+    </div>
     </div>
 
     <script src="../js/cadastro.js"></script> 
