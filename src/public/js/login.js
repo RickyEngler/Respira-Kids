@@ -1,24 +1,29 @@
-function logar() {
-    var email = document.getElementById('email').value;
-    var senha = document.getElementById('senha').value;
+document.getElementById('cadastro-form').addEventListener('submit', async (e) => {
+    e.preventDefault(); // Evita o comportamento padrão do formulário
 
-    fetch('/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email: email, senha: senha })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            location.href = "../views/home.html"; // Redireciona para a página ../views/home.html se o login for bem-sucedido
+    const email = document.getElementById('email').value;
+    const senha = document.getElementById('senha').value;
+
+    try {
+        const response = await fetch('/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, senha }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            // Se o login for bem-sucedido, redireciona para a página home
+            window.location.href = data.redirect;
         } else {
-            alert('Usuário e/ou senha incorretos');
+            // Exibe a mensagem de erro recebida do servidor
+            alert(`Erro: ${data.message}`);
         }
-    })
-    .catch(error => {
-        console.error('Erro ao tentar logar:', error);
-        alert('Erro desconhecido. Tente novamente mais tarde.');
-    });
-}
+    } catch (error) {
+        console.error('Erro ao realizar o login:', error);
+        alert('Erro no servidor. Tente novamente mais tarde.');
+    }
+    
+    
+});

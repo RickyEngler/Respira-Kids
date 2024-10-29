@@ -9,19 +9,18 @@
 
 <body>
     <div id="box-login">
-    <form onsubmit="cadastrarUsuario(); return false;" id="cadastro-form">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" autocomplete="email" placeholder="Insira seu email..." required>
-                <br><br>
-                <label for="senha">Senha</label>
-                <input type="password" id="senha" name="senha" placeholder="Insira sua senha..." required minlength="4">
-                <br><br>
-                <button type="submit" id="logar-btn" onsubmit="logar(); return false;"> ENTRAR </button>
-                <h1>Não possui cadastro? <a href="../views/cadastro.html">Cadastre-se</a></h1>
-    </form>
+        <form id="cadastro-form">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Insira seu email..." required>
+            <br><br>
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" placeholder="Insira sua senha..." required minlength="4">
+            <br><br>
+            <button type="submit" id="logar-btn">ENTRAR</button>
+            <h1>Não possui cadastro? <a href="../views/cadastro.html">Cadastre-se</a></h1>
+        </form>
     </div>
    
-    <script src="../js/login.js"></script>    
-
+    <script src="../js/login.js"></script>
 </body>
 </html>
