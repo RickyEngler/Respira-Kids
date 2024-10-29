@@ -1,23 +1,19 @@
-function cadastrarUsuario() {
-    var nome = document.getElementById('nome').value;
-    var email = document.getElementById('email').value;
-    var telefone = document.getElementById('telefone').value;
-    var data_nascimento = document.getElementById('data_nascimento').value;
-    var senha = document.getElementById('cadastro-senha').value;
+document.getElementById('cadastroForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
 
-    fetch('/cadastrar', {
+    try {
+      const response = await fetch('/cadastro', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ nome: nome, email: email, telefone: telefone, data_nascimento: data_nascimento, senha: senha })
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert(data.message);
-    })
-    .catch(error => {
-        console.error('Erro ao cadastrar usuário:', error);
-        alert('Erro no servidor. Tente novamente mais tarde.');
-    });
-};
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data)
+      });
+
+      const result = await response.text();
+      alert(result);
+    } catch (error) {
+      console.error('Erro ao enviar formulário:', error);
+      alert('Erro ao cadastrar usuário.');
+    }
+  });
