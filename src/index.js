@@ -12,20 +12,20 @@ const PORT = 3000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Configurar a pasta public para servir arquivos estáticos
+
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Middleware para processar dados do formulário
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Rota principal (/) para exibir login.html
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'views', 'login.html'));
 });
 
-// Rota para exibir home.html
+
 app.get('/home.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'views', 'home.html'));
 });
@@ -65,7 +65,7 @@ app.post('/cadastro', async (req, res) => {
 app.post('/login', async (req, res) => {
     const { email, senha } = req.body;
 
-    console.log('Login solicitado para:', email); // Log para depuração
+    console.log('Login solicitado para:', email); 
 
     try {
         const db = await open({
@@ -76,22 +76,22 @@ app.post('/login', async (req, res) => {
         const user = await db.get('SELECT * FROM usuarios WHERE email = ?', [email]);
 
         if (!user) {
-            console.log('Usuário não encontrado'); // Log para depuração
+            console.log('Usuário não encontrado'); 
             return res.status(400).json({ message: 'Email ou senha inválidos!' });
         }
 
         const senhaCorreta = await bcrypt.compare(senha, user.senha);
 
         if (!senhaCorreta) {
-            console.log('Senha incorreta'); // Log para depuração
+            console.log('Senha incorreta'); 
             return res.status(400).json({ message: 'Email ou senha inválidos!' });
         }
 
-        console.log('Login bem-sucedido'); // Log para depuração
+        console.log('Login bem-sucedido'); 
         res.status(200).json({ redirect: '/home.html' });
 
     } catch (err) {
-        console.error('Erro ao realizar o login:', err.message); // Log do erro específico
+        console.error('Erro ao realizar o login:', err.message);
         res.status(500).json({ message: 'Erro no servidor. Tente novamente mais tarde.' });
     }
 });
