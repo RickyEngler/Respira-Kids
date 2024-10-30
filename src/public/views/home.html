@@ -1,12 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css-styles/home.css">
-    <title>Home</title>
+    <title>Respiração Guiada</title>
+    <link rel="stylesheet" href="/css-styles/home.css">
+    <style>
+        #respiracao-video::-webkit-media-controls {
+            display: none !important;
+        }
+
+        #respiracao-video {
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body>
-    <div id="video"> video</div>
+    <div id="video-container">
+        <video id="respiracao-video" width="600" autoplay>
+            <source src="/assets/PRINCIPAL.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo.
+        </video>
+    </div>
+    <div id="resposta-container" style="display: none;">
+        <button id="nao-btn">Não</button>
+        <button id="sim-btn">Sim</button>
+    </div>
+
+    <script src="/js/video.js"></script>
 </body>
 </html>

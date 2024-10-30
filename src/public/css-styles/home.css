@@ -7,4 +7,53 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
- }
+}
+
+#video-container {
+    position: relative;
+    width: 1280px;
+    margin: 0 auto;
+}
+
+#respiracao-video {
+    width: 100%;
+    height: auto;
+    border-radius: 30px;
+}
+
+#resposta-container {
+    position: absolute;
+    bottom: 17.9%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 30px;
+    z-index: 10;
+
+}
+
+#sim-btn, #nao-btn {
+    width: 80px;
+    height: 80px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0;
+    border-radius: 50px;
+    margin-left: 21px;
+    margin-right: 14px;
+}
+
+#sim-btn:hover, #nao-btn:hover {
+    background-color: rgba(122, 103, 73, 0.733);
+    transition: background-color 0.3s;
+}
+
+#respiracao-video::-webkit-media-controls {
+    display: none !important;
+}
+
+#respiracao-video {
+    pointer-events: none;
+}
+
